@@ -1,0 +1,48 @@
+﻿@* declarar da onde esta vindo os dados(controller) *@
+@model IEnumerable<Store2021.Models.Category>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-default"> Adicionar</a>
+</p>
+<table class="table" table-striped table-hover>
+    <thead>
+        <tr class="alert-success">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Owner)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar </a> &nbsp;
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes </a>&nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    <p> Categorias index page</p>
+
+}
