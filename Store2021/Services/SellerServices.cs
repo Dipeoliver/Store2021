@@ -22,5 +22,12 @@ namespace Store2021.Services
         {
             return await _context.Seller.ToListAsync();
         }
+
+        // metodo para inserir (INSERT) no banco de dados
+        public async Task InsertAsync(Seller obj)
+        {
+            _context.Add(obj);
+            await _context.SaveChangesAsync();
+        }
     }
 }
